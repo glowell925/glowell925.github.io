@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Griffin Lowell — Mechanical Engineer | AI + Hardware</title>
-<meta name="description" content="Griffin Lowell — Mechanical Engineering student at UW–Madison. Portfolio of controls, mechanical design, and AI-driven automation projects." />
+<meta name="description" content="Griffin Lowell — Mechanical Engineering student at UW–Madison. Portfolio of controls, mechanical design, and AI-driven automation projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FAFAF8; --surface:#FFFFFF; --surface-2:#F1EFEA;
@@ -28,7 +27,7 @@
     line-height:1.6; -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
+  img,video{max-width:100%;display:block}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   section{padding:64px 0;border-top:1px solid var(--line)}
   h1,h2,h3,h4{font-family:'Space Grotesk',-apple-system,sans-serif;letter-spacing:-.01em}
@@ -78,7 +77,7 @@
     transition:border-color .15s, transform .15s; box-shadow:var(--shadow)}
   .project-card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
   .card-thumb{aspect-ratio:4/3;background:var(--surface-2);overflow:hidden;display:flex;align-items:center;justify-content:center}
-  .card-thumb img{width:100%;height:100%;object-fit:cover}
+  .card-thumb img,.card-thumb video{width:100%;height:100%;object-fit:cover}
   .card-thumb svg{width:88%;height:88%}
   .card-body{padding:20px 22px 22px}
   .card-body .status{margin-bottom:10px}
@@ -91,7 +90,7 @@
   /* PROJECT DETAIL VIEW */
   .project-detail{padding:0}
   .detail-top{border-top:none;padding:36px 0 0}
-  .back-link{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--muted);margin-bottom:26px}
+  .back-link{display:flex;width:fit-content;align-items:center;gap:6px;font-size:.88rem;font-weight:600;color:var(--muted);margin-bottom:26px}
   .back-link:hover{color:var(--text)}
   .back-link svg{width:15px;height:15px}
   .detail-top .status{margin-bottom:14px}
@@ -104,6 +103,7 @@
   .gallery-track{display:flex;height:100%;transition:transform .35s ease}
   .gallery-track>*{flex:0 0 100%;height:100%;display:flex;align-items:center;justify-content:center;padding:0}
   .gallery-track img{width:100%;height:100%;object-fit:contain}
+  .gallery-track video{width:100%;height:100%;object-fit:contain;background:#0D0E11}
   .gallery-track .gallery-svg{width:100%;height:100%;padding:28px}
   .gallery-track .gallery-svg svg{width:100%;height:100%}
   .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;
@@ -149,8 +149,8 @@
   .exp-row .more{color:var(--accent);font-weight:600;font-size:.85rem}
 
   /* SKILLS */
-  .skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
-  @media(max-width:860px){.skillgrid{grid-template-columns:1fr}}
+  .skillgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+  @media(max-width:640px){.skillgrid{grid-template-columns:1fr}}
   .skillcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
   .skillcard h4{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-family:'Space Grotesk'}
   .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -173,16 +173,16 @@
   }
   [hidden]{display:none !important}
 </style>
-</head>
+<link type="text/css" rel="stylesheet" href="chrome-extension://fheoggkfdfchfphceeifdbepaooicaho/css/mcafee_fonts.css"></head>
 <body>
 
 <nav>
   <div class="wrap">
     <a class="brand" href="#">Griffin Lowell</a>
     <div class="navlinks">
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
+      <a href="#projects" class="">Projects</a>
+      <a href="#experience" class="">Experience</a>
+      <a href="#skills" class="">Skills</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -198,27 +198,26 @@
       <div class="section-kicker" style="margin-bottom:0">Mechanical Engineering · UW–Madison · Class of 2028</div>
     </div>
     <h1>Griffin Lowell</h1>
-    <div class="role">I build where AI meets hardware.</div>
-    <p class="bio">Junior studying mechanical engineering with a Certificate in Computer Science. I like taking a problem from a sketch to something that actually runs — a cleaning fixture I designed and shipped on a manufacturing floor, a pendulum I'm teaching to balance itself, and a trading bot executing real trades every day. Looking for a <strong>Summer 2027 engineering internship</strong> in controls, robotics, or mechanical design.</p>
+    <p class="bio">Junior studying mechanical engineering with a Certificate in Computer Science. A few recent projects I would like to highlight — a cleaning fixture I designed and shipped on a manufacturing floor, a pendulum I'm teaching to balance itself, and a trading bot executing real trades every day. Looking for a <strong>Summer 2027 engineering internship</strong> in controls, robotics, or mechanical design.</p>
     <p class="meta">B.S. Mechanical Engineering · Certificate in Computer Science · University of Wisconsin–Madison · Expected May 2028 · Cleveland, OH</p>
     <div class="cta">
       <a class="btn primary" href="mailto:griffinlowell925@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
         Email me
       </a>
       <a class="btn" href="assets/Griffin_Lowell_Resume.pdf" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>
         Résumé
       </a>
       <a class="btn" href="https://www.linkedin.com/in/griffin-lowell-7aa85b32a/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.2 8.5h4.56V24H.2V8.5Zm7.5 0h4.37v2.12h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-6.84c0-1.63-.03-3.73-2.27-3.73-2.27 0-2.62 1.78-2.62 3.61V24H7.7V8.5Z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.2 8.5h4.56V24H.2V8.5Zm7.5 0h4.37v2.12h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-6.84c0-1.63-.03-3.73-2.27-3.73-2.27 0-2.62 1.78-2.62 3.61V24H7.7V8.5Z"></path></svg>
         LinkedIn
       </a>
     </div>
   </div>
 </header>
 
-<section id="projects">
+<section id="projects" class="">
   <div class="wrap">
     <div class="reveal">
       <div class="section-kicker">Selected Work</div>
@@ -228,57 +227,49 @@
 
     <div class="project-grid reveal">
       <a class="project-card" href="#tth">
-        <div class="card-thumb"><img src="assets/img/tth-pour-test.jpg" alt="The finished resin cassette fixture mid pour-test, tilted with a green collection funnel at the corner" loading="lazy"></div>
+        <div class="card-thumb"><img src="assets/img/Cassette-Mounting.png" alt="The finished resin cassette fixture mid pour-test, tilted with a green collection funnel at the corner" loading="lazy" class="" style="object-position: 50% 37.8%; object-fit: contain; transform: translate(-20.8px, 78.4px) scale(3);"></div>
         <div class="card-body">
           <div class="status built"><span class="dot"></span>Built · tested · handed off</div>
           <h3>Resin Cassette Cleaning Fixture</h3>
           <p>A mobile powered fixture that gets Carbon's resin cassette out of the printer for a clean corner pour.</p>
-          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
 
       <a class="project-card" href="#pendulum">
-        <div class="card-thumb"><img src="assets/img/pendulum-assembly.png" alt="Rotary inverted pendulum SolidWorks assembly" loading="lazy"></div>
+        <div class="card-thumb"><img src="assets/img/Screenshot-2026-08-10-211849.png" alt="Rotary inverted pendulum SolidWorks assembly" loading="lazy" class="" style="object-fit: contain; object-position: 50% 10.2%; transform: translate(-3.2px, 39.3px) scale(1.2);"></div>
         <div class="card-body">
           <div class="status warn"><span class="dot"></span>In progress · controls next</div>
           <h3>Rotary Inverted Pendulum</h3>
           <p>An underactuated balance system, swing-up to LQR — CAD and hardware done, control firmware next.</p>
-          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
 
       <a class="project-card" href="#trading-bot">
-        <div class="card-thumb">
-          <svg viewBox="0 0 300 220" role="img" aria-label="Credit spread payoff diagram, thumbnail">
-            <polyline points="30,80 110,80 160,160 260,160" fill="none" stroke="#15171C" stroke-width="2.5"/>
-            <line x1="30" y1="190" x2="280" y2="190" stroke="#CBC9C0" stroke-width="1.5"/>
-            <line x1="110" y1="60" x2="110" y2="190" stroke="#CBC9C0" stroke-dasharray="3 3"/>
-            <line x1="160" y1="60" x2="160" y2="190" stroke="#CBC9C0" stroke-dasharray="3 3"/>
-            <circle cx="135" cy="120" r="3.5" fill="#2A4CDB"/>
-          </svg>
-        </div>
+        <div class="card-thumb"><img src="assets/img/Screenshot-2026-08-10-213456.png" alt="" loading="lazy" class=""></div>
         <div class="card-body">
           <div class="status live"><span class="dot"></span>Live · real capital</div>
           <h3>Spread Trader Bot</h3>
           <p>An autonomous options-spread system trading real capital on the Schwab API, live and running daily.</p>
-          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
 
       <a class="project-card" href="#doorbuzzer">
-        <div class="card-thumb"><img src="assets/img/doorbuzzer.jpg" alt="Raspberry Pi door buzzer with 3D-printed rack and pinion" loading="lazy"></div>
+        <div class="card-thumb"><img src="assets/img/doorbuzzer.jpg" alt="Raspberry Pi door buzzer with 3D-printed rack and pinion" loading="lazy" class="" style="object-fit: cover; object-position: 50% 90.9%;"></div>
         <div class="card-body">
           <div class="status built"><span class="dot"></span>Built &amp; deployed</div>
           <h3>Apartment Door Buzzer</h3>
           <p>A 3D-printed rack-and-pinion opener that unlocks my apartment intercom from anywhere.</p>
-          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" class="">
   <div class="wrap reveal">
     <div class="section-kicker">Background</div>
     <h2 class="section-title">Education &amp; experience</h2>
@@ -312,7 +303,7 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="">
   <div class="wrap reveal">
     <div class="section-kicker">Toolkit</div>
     <h2 class="section-title">Skills &amp; tools</h2>
@@ -323,6 +314,7 @@
         <div class="chips">
           <span class="chip">SolidWorks (CSWA)</span><span class="chip">FEA</span><span class="chip">MATLAB</span>
           <span class="chip">Python</span><span class="chip">Java</span><span class="chip">Git</span><span class="chip">Excel</span>
+          <span class="chip">Claude Code</span><span class="chip">MecAgent CAD Copilot</span>
         </div>
       </div>
       <div class="skillcard">
@@ -331,12 +323,6 @@
           <span class="chip">Carbon DLS</span><span class="chip">HP Multi Jet Fusion</span><span class="chip">FDM 3D Printing</span>
           <span class="chip">Laser Cutting</span><span class="chip">Mill / Lathe / CNC Lathe</span><span class="chip">Bead Blasting</span>
           <span class="chip">Vapor Smoothing</span><span class="chip">Raspberry Pi</span><span class="chip">Soldering</span>
-        </div>
-      </div>
-      <div class="skillcard">
-        <h4>AI-Assisted Workflow</h4>
-        <div class="chips">
-          <span class="chip">Claude Code</span><span class="chip">MecAgent CAD Copilot</span>
         </div>
       </div>
     </div>
@@ -359,48 +345,48 @@
 </main>
 
 <!-- ============ PROJECT DETAIL: TTH ============ -->
-<article class="project-detail" id="tth" hidden data-title="Resin Cassette Cleaning Fixture">
+<article class="project-detail" id="tth" data-title="Resin Cassette Cleaning Fixture" hidden="">
   <div class="wrap detail-top">
-    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a>
+    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
     <div class="status built"><span class="dot"></span>Built · tested · handed off</div>
     <h1>Resin Cassette Cleaning Fixture</h1>
     <p class="tagline">Mobile powered fixture that lifts, tilts, and rotates a Carbon resin vat for a clean corner pour — Engineering Internship, The Technology House</p>
 
-    <div class="gallery" data-gallery>
+    <div class="gallery" data-gallery="">
       <div class="gallery-viewport">
         <div class="gallery-track">
-          <img src="assets/img/tth-pour-test.jpg" alt="The fixture tilted mid pour-test, a green collection funnel catching resin at the corner" data-caption="Corner-drain pour test — the fixture tilted with a collection funnel at the drain corner.">
-          <img src="assets/img/tth-cradle.jpg" alt="Close-up of the HDPE top and laser-engraved plywood cradle with printed locating hardware" data-caption="The cradle: HDPE top, laser-engraved plywood base, HP PA 12 locating hardware.">
-          <img src="assets/img/tth-part-finished.jpg" alt="Griffin holding a finished locating part, HP PA 12, after bead blasting" data-caption="One of the locating parts — HP Multi Jet Fusion PA 12, bead blasted — printed and finished by Griffin.">
-          <img src="assets/img/tth-laser.jpg" alt="Laser engraving machine cutting the plywood base" data-caption="Laser-engraving the plywood base with the exact position of every locating part.">
-          <img src="assets/img/tth-spout-concept.jpg" alt="Annotated photo sketching a clip-on spout concept to redirect resin flow past the cassette wall" data-caption="The open problem, sketched: a clip-on spout to carry resin past the cassette wall — designed, not built.">
-          <img src="assets/img/tth-assembly.png" alt="First-concept fixture assembly in SolidWorks — yoke, pivot shaft, and telescoping column" data-caption="Superseded — the first concept: a fully fabricated yoke, pivot shaft, and telescoping column.">
-          <img src="assets/img/tth-exploded.png" alt="Exploded view of the first-concept fixture, from wheeled base up to the cassette" data-caption="Superseded — items 2–6 of this stack were later replaced by one purchased motorized base.">
+          <img src="assets/img/Cassette-Mounting.png" alt="Empty Resin-Cassette siting on build" data-caption="Empty Resin-Cassette Mounted on the build" style="transform: translate(-35.2px, 97.6px) scale(2.9);">
+          <img src="assets/img/tth-exploded.png" alt="Exploded view of the first-concept fixture, from wheeled base up to the cassette" data-caption="The Original Superseded Concept — items 2–6 of this stack were later replaced by one purchased motorized base." class=""><img src="assets/img/tth-assembly.png" alt="First-concept fixture assembly in SolidWorks — yoke, pivot shaft, and telescoping column" data-caption="Superseded Concept Modeled in SolidWorks — A fully fabricated yoke, pivot shaft, and telescoping column." style="transform: translate(-0.8px, -19.2px) scale(1.1);"><img src="assets/img/Template--Cad-model.png" alt="Close-up of the HDPE top and laser-engraved plywood cradle with printed locating hardware" data-caption="The in-service template -&gt; Modeled in SolidWorks" class="">
+          <img src="assets/img/ChatGPT-Image-Aug-10-2026-08_12_45-PM.png" alt="Griffin holding a finished locating part, HP PA 12, after bead blasting" data-caption="One of the locating parts — HP Multi Jet Fusion PA 12, Side by side: As unpacked -&gt; Beadblasted" class="">
+          <img src="assets/img/tth-laser.jpg" alt="Laser engraving machine cutting the plywood base" data-caption="Laser-engraving the plywood base with the exact position of every locating part." class="" style="transform: translate(-20.8px, 0px) scale(1.3);"><video src="assets/video/Base--Lazy-Susan.mp4" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="Putting the Locating Pucks and Support Cylinders on the laser engraved wood base + the Lazy Susan bearing on the underside." class=""></video>
+          <img src="assets/img/tth-spout-concept.jpg" alt="Annotated photo sketching a clip-on spout concept to redirect resin flow past the cassette wall" data-caption="The open problem, sketched: a clip-on spout to carry resin past the cassette wall — designed, not built." class="">
+          
+          
         </div>
       </div>
       <div class="gallery-footer">
         <p class="gallery-caption"></p>
         <div class="gallery-dots"></div>
       </div>
-      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button class="gallery-nav prev" aria-label="Previous image" fdprocessedid="1v2pfh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg></button>
+      <button class="gallery-nav next" aria-label="Next image" fdprocessedid="bmotlh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg></button>
     </div>
 
     <div class="detail-body">
-      <p>At <strong>The Technology House</strong>, a manufacturer in Streetsboro, OH, my supervisor handed me a problem I had already met on the production floor: Carbon's large resin cassettes were being cleaned <strong>in place, inside the printer</strong>. Resin that escaped had a direct path down into the machine's internals, the job ran about <strong>18 minutes</strong> of scooping per machine, and it meant reaching over live equipment. I designed and built a mobile fixture that takes the cassette <em>out</em> of the printer so it can be poured instead of scooped.</p>
+      <p class="">At <strong>The Technology House</strong>, a manufacturer in Streetsboro, OH, my supervisor handed me a problem I had already met on the production floor: Carbon's large resin cassettes were being cleaned <strong>in place, inside the printer</strong>. Resin that escaped had a direct path down into the machine's internals, the job ran about <strong>18 minutes</strong> of scooping per machine, and it meant reaching over live equipment. I designed and built a mobile fixture that takes the cassette <em>out</em> of the printer so it can be poured instead of scooped.</p>
 
       <div class="story">
-        <div class="label">The design I threw away</div>
-        <p>My first design was a fully fabricated steel assembly — telescoping column, yoke, pivot shaft on bearings, index plate and detent pin. It worked on screen. After review with the company's engineers I <strong>deleted almost all of it:</strong> a sourced motorized drafting-table base already gave powered height <em>and</em> 0–90° tilt, more rigidly and with a fraction of the parts I would have had to fabricate. One purchase replaced nearly every custom component. Knowing when to stop designing was the most useful thing I took away from this project.</p>
+        <div class="label">The Subseeded Design</div>
+        <p>My first design was a fully fabricated steel assembly — telescoping column, yoke, pivot shaft on bearings, index plate and detent pin. It worked on screen. After review with the company's engineers <strong>We Decided to Pivot</strong><strong>:</strong> a sourced motorized drafting-table base already gave powered height <em>and</em> 0–90° tilt, more rigidly and with a fraction of the parts I would have had to fabricate. One purchase replaced nearly every custom component. Knowing when to stop designing was the most useful thing I took away from this project.</p>
       </div>
 
       <ul class="hl">
-        <li><strong>Corner drain is the whole point.</strong> Tilting alone drops a full edge and resin runs off along a line. A 9" turntable mounted <em>above</em> the tilt axis re-clocks the cassette 45° so a single <strong>corner</strong> points down — rotate while level, then tilt.</li>
-        <li><strong>Reverse-engineered the interface.</strong> Measuring Carbon's in-service jack-cart revealed a locating template already in use; I recreated it in SolidWorks rather than inventing my own, which bought jack-cart compatibility and proven stability for free.</li>
-        <li><strong>Made the locating hardware myself</strong> — four locking circles and four support cylinders in HP PA 12, printed on the HP Multi Jet Fusion machines I ran daily, then unpacked, blown off, and bead blasted end to end.</li>
-        <li><strong>Drop-in assembly:</strong> a 24" × 30" plywood base laser-engraved with the exact position of every printed part, so the layout is reproducible by anyone.</li>
-        <li><strong>Material calls:</strong> the stock glass top was swapped for 1" HDPE — resin-resistant and it takes fasteners directly. Nothing touching resin is PLA (it creeps and uncured resin attacks it).</li>
-        <li>Delivered at <strong>$861</strong> total ($449 purchased, the balance in-house printing), and presented the design, test results, and the open problem to the engineering team.</li>
+        <li class=""><strong>Corner drain is the whole point.</strong> Tilting alone drops a full edge and resin runs off along a line. A 9" turntable mounted <em>above</em> the tilt axis re-clocks the cassette 45° so a single <strong>corner</strong> points down — rotate while level, then tilt.</li>
+        <li class=""><strong>Reverse-engineered the interface.</strong> Measuring Carbon's in-service jack-cart revealed a locating template already in use; I recreated it in SolidWorks rather than inventing my own, which bought jack-cart compatibility and proven stability for free.</li>
+        <li class=""><strong>Made the locating hardware myself</strong> — four locking circles and four support cylinders in HP PA 12, printed on the HP Multi Jet Fusion machines I ran daily, then unpacked, blown off, and bead blasted end to end.</li>
+        <li class=""><strong>Drop-in assembly:</strong> a 24" × 30" plywood base laser-engraved with the exact position of every printed part, so the layout is reproducible by anyone.</li>
+        <li class=""><strong>Material calls:</strong> the stock glass top was swapped for 1" HDPE — resin-resistant and it takes fasteners directly. Nothing touching resin is PLA (it creeps and uncured resin attacks it).</li>
+        <li class="">Delivered at <strong>$861</strong> total ($449 purchased, the balance in-house printing), and presented the design, test results, and the open problem to the engineering team.</li>
       </ul>
 
       <div class="story">
@@ -410,43 +396,43 @@
 
       <p><strong>The rest of the internship:</strong> daily production work on both platforms. On <strong>Carbon DLS</strong> — measuring resin pours to spec, cleaning machines, washing and baking finished parts, and quality control on completed builds. On <strong>HP Multi Jet Fusion</strong> — printer cleaning and maintenance, extracting parts from cooling units, loading material into build units, bead blasting, and vapor smoothing. Running the machines is why the cassette-cleaning problem was one I had felt myself rather than read in a spec.</p>
 
-      <p class="techline"><b>Tools:</b> SolidWorks (assembly &amp; mates) · MecAgent CAD Copilot · HP Multi Jet Fusion (HP PA 12) · laser engraving · Carbon DLS · DFM</p>
+      <p class="techline"><strong>Tools:</strong> SolidWorks (assembly &amp; mates) · MecAgent CAD Copilot · HP Multi Jet Fusion (HP PA 12) · laser engraving · Carbon DLS · DFM</p>
     </div>
   </div>
-  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a></div>
+  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a></div>
 </article>
 
 <!-- ============ PROJECT DETAIL: PENDULUM ============ -->
-<article class="project-detail" id="pendulum" hidden data-title="Rotary Inverted Pendulum">
+<article class="project-detail" id="pendulum" data-title="Rotary Inverted Pendulum" hidden="">
   <div class="wrap detail-top">
-    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a>
+    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
     <div class="status warn"><span class="dot"></span>In progress · controls next</div>
     <h1>Rotary Inverted Pendulum (Furuta)</h1>
     <p class="tagline">Underactuated nonlinear-controls build — full stack from CAD to control loop, prof-recommended</p>
 
-    <div class="gallery" data-gallery>
+    <div class="gallery" data-gallery="">
       <div class="gallery-viewport">
         <div class="gallery-track">
-          <img src="assets/img/pendulum-assembly.png" alt="Inverted pendulum SolidWorks assembly" data-caption="Pendulum assembly — motor, arm, and encoder mount (SolidWorks).">
-          <img src="assets/img/pendulum-encoder.png" alt="AS5600 encoder mount close-up" data-caption="AS5600 magnetic encoder mounted on the driven arm.">
+          <img src="assets/img/Screenshot-2026-08-10-211849.png" alt="" data-caption="Pendulum assembly — motor, arm, and encoder mount (Hardware)." class=""><img src="assets/img/pendulum-assembly.png" alt="Inverted pendulum SolidWorks assembly" data-caption="Pendulum assembly — motor, arm, and encoder mount (SolidWorks)." class=""><img src="assets/img/Screenshot-2026-08-10-211927.png" alt="" data-caption="Full Electronics view" class="">
+          
           <div class="gallery-svg" data-caption="Planned control architecture — energy-based swing-up handing off to an LQR stabilizer.">
             <svg viewBox="0 0 460 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Control loop diagram">
               <g font-family="'Space Grotesk',sans-serif" font-size="10" text-anchor="middle">
-                <rect x="16" y="48" width="80" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="16" y="48" width="80" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="56" y="67" fill="#15171C" font-weight="700">Sensors</text><text x="56" y="81" fill="#8B8E96" font-size="8.5">AS5600 · encoder</text>
-                <rect x="122" y="48" width="86" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="122" y="48" width="86" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="165" y="67" fill="#15171C" font-weight="700">Estimator</text><text x="165" y="81" fill="#8B8E96" font-size="8.5">θ, θ̇, φ, φ̇</text>
-                <rect x="234" y="48" width="102" height="46" rx="8" fill="#FFFFFF" stroke="#A85A00"/>
+                <rect x="234" y="48" width="102" height="46" rx="8" fill="#FFFFFF" stroke="#A85A00"></rect>
                 <text x="285" y="67" fill="#A85A00" font-weight="700">Swing-up → LQR</text><text x="285" y="81" fill="#8B8E96" font-size="8.5">energy / u = −Kx</text>
-                <rect x="362" y="48" width="82" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="362" y="48" width="82" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="403" y="67" fill="#15171C" font-weight="700">L298N</text><text x="403" y="81" fill="#8B8E96" font-size="8.5">PWM motor</text>
                 <g stroke="#8B8E96" stroke-width="1.4" fill="none" marker-end="url(#arrow)">
-                  <path d="M96 71 H120"/><path d="M208 71 H232"/><path d="M336 71 H360"/>
+                  <path d="M96 71 H120"></path><path d="M208 71 H232"></path><path d="M336 71 H360"></path>
                 </g>
-                <path d="M403 94 V118 H56 V96" fill="none" stroke="#CBC9C0" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <path d="M403 94 V118 H56 V96" fill="none" stroke="#CBC9C0" stroke-width="1.2" stroke-dasharray="4 3"></path>
                 <text x="230" y="134" fill="#8B8E96" font-size="9">continuous feedback loop</text>
               </g>
-              <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8B8E96"/></marker></defs>
+              <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8B8E96"></path></marker></defs>
             </svg>
           </div>
         </div>
@@ -455,12 +441,12 @@
         <p class="gallery-caption"></p>
         <div class="gallery-dots"></div>
       </div>
-      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg></button>
+      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg></button>
     </div>
 
     <div class="detail-body">
-      <p>A from-scratch rotary inverted pendulum, taken on at the recommendation of a <strong>robotics/controls research professor</strong> at UW–Madison. A motor-driven arm sweeps horizontally while a passive pendulum hangs from its tip; the goal is to <strong>swing it up and balance it upright</strong> — the classic underactuated, unstable controls benchmark. I'm building the whole stack myself: CAD and 3D printing, sensor and motor-driver wiring, and (next) the real-time control firmware.</p>
+      <p class="">A from-scratch rotary inverted pendulum, taken on at the recommendation of a <strong>robotics/controls research professor</strong> at UW–Madison. A motor-driven arm sweeps horizontally while a passive pendulum hangs from its tip; the goal is to <strong>swing it up and balance it upright</strong> — the classic underactuated, unstable controls benchmark. I'm building the whole stack myself: CAD and 3D printing, sensor and motor-driver wiring, and (next) the real-time control firmware.</p>
 
       <div class="story">
         <div class="label">Current status — honest</div>
@@ -475,59 +461,42 @@
         <li><strong>6 print iterations</strong> refining the arm, encoder housing, and pendulum pivot.</li>
       </ul>
 
-      <p class="techline"><b>Stack:</b> Raspberry Pi (Python) · AS5600 / I²C · N20 quadrature encoder · L298N driver · SolidWorks · FDM printing · control theory (energy shaping, LQR)</p>
+      <p class="techline"><strong>Stack:</strong> Raspberry Pi (Python) · AS5600 / I²C · N20 quadrature encoder · L298N driver · SolidWorks · FDM printing · control theory (energy shaping, LQR)</p>
     </div>
   </div>
-  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a></div>
+  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a></div>
 </article>
 
 <!-- ============ PROJECT DETAIL: TRADING BOT ============ -->
-<article class="project-detail" id="trading-bot" hidden data-title="Spread Trader Bot">
+<article class="project-detail" id="trading-bot" data-title="Spread Trader Bot" hidden="">
   <div class="wrap detail-top">
-    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a>
+    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
     <div class="status live"><span class="dot"></span>Live · real capital</div>
     <h1>Spread Trader Bot</h1>
     <p class="tagline">Autonomous options-spread trading system on the Charles Schwab API — built with my father, who runs SmartOptionSeller</p>
 
-    <div class="gallery" data-gallery>
+    <div class="gallery" data-gallery="">
       <div class="gallery-viewport">
         <div class="gallery-track">
-          <div class="gallery-svg" data-caption="A short credit spread's payoff — flat max profit, a sloped risk zone, flat max loss beyond the long strike.">
-            <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Credit spread payoff diagram">
-              <g font-family="'Space Grotesk',sans-serif" font-size="11">
-                <line x1="50" y1="220" x2="570" y2="220" stroke="#CBC9C0" stroke-width="1.4"/>
-                <line x1="50" y1="130" x2="570" y2="130" stroke="#CBC9C0" stroke-width="1" stroke-dasharray="3 3"/>
-                <line x1="250" y1="60" x2="250" y2="220" stroke="#CBC9C0" stroke-dasharray="3 3"/>
-                <line x1="350" y1="60" x2="350" y2="220" stroke="#CBC9C0" stroke-dasharray="3 3"/>
-                <polyline points="60,80 250,80 350,190 560,190" fill="none" stroke="#2A4CDB" stroke-width="2.6" stroke-linejoin="round"/>
-                <circle cx="295" cy="130" r="4" fill="#15171C"/>
-                <text x="90" y="70" fill="#1E7A4C" font-weight="700">Max profit</text>
-                <text x="430" y="205" fill="#A85A00" font-weight="700">Max loss</text>
-                <text x="295" y="112" fill="#15171C" font-weight="700" text-anchor="middle">Breakeven</text>
-                <text x="250" y="238" fill="#8B8E96" font-size="9.5" text-anchor="middle">short strike</text>
-                <text x="350" y="238" fill="#8B8E96" font-size="9.5" text-anchor="middle">long strike</text>
-                <text x="565" y="238" fill="#8B8E96" font-size="9.5" text-anchor="end">underlying price →</text>
-              </g>
-            </svg>
-          </div>
+          
           <div class="gallery-svg" data-caption="The continuous scan-price-route-log loop the bot runs on every candidate spread.">
             <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trading bot pipeline diagram">
               <g font-family="'Space Grotesk',sans-serif" font-size="10.5" text-anchor="middle">
-                <rect x="16" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="16" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="75" y="66" fill="#15171C" font-weight="700">Scan</text><text x="75" y="80" fill="#8B8E96" font-size="8.5">live option chains</text>
-                <rect x="168" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="168" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="227" y="66" fill="#15171C" font-weight="700">Price</text><text x="227" y="80" fill="#8B8E96" font-size="8.5">candidate spreads</text>
-                <rect x="320" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#2A4CDB"/>
+                <rect x="320" y="46" width="118" height="48" rx="8" fill="#FFFFFF" stroke="#2A4CDB"></rect>
                 <text x="379" y="66" fill="#2A4CDB" font-weight="700">Route</text><text x="379" y="80" fill="#8B8E96" font-size="8.5">real order, real capital</text>
-                <rect x="472" y="46" width="132" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"/>
+                <rect x="472" y="46" width="132" height="48" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
                 <text x="538" y="66" fill="#15171C" font-weight="700">Log</text><text x="538" y="80" fill="#8B8E96" font-size="8.5">fill outcome dataset</text>
                 <g stroke="#8B8E96" stroke-width="1.4" fill="none" marker-end="url(#arrow2)">
-                  <path d="M134 70 H166"/><path d="M286 70 H318"/><path d="M438 70 H470"/>
+                  <path d="M134 70 H166"></path><path d="M286 70 H318"></path><path d="M438 70 H470"></path>
                 </g>
-                <path d="M538 94 V118 H75 V96" fill="none" stroke="#CBC9C0" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <path d="M538 94 V118 H75 V96" fill="none" stroke="#CBC9C0" stroke-width="1.2" stroke-dasharray="4 3"></path>
                 <text x="305" y="132" fill="#8B8E96" font-size="9.5">~5s continuous loop, findings feed back into pricing</text>
               </g>
-              <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8B8E96"/></marker></defs>
+              <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8B8E96"></path></marker></defs>
             </svg>
           </div>
         </div>
@@ -536,23 +505,23 @@
         <p class="gallery-caption"></p>
         <div class="gallery-dots"></div>
       </div>
-      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg></button>
+      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg></button>
     </div>
 
     <div class="detail-body">
-      <p>An autonomous Python system that trades a live options strategy through the Charles Schwab API. The strategy itself is my father's proprietary playbook — he runs the <a href="https://www.smartoptionseller.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">SmartOptionSeller</a> options newsletter and has traded it by hand for years — so the specifics stay private. My role was to be the <strong>AI interpreter</strong>: turn a proven manual playbook into a self-running system that scans the market continuously, evaluates candidates against his rules, and routes <strong>real orders</strong> with no human in the loop.</p>
+      <p class="">An autonomous Python system that trades a live options strategy through the Charles Schwab API. The strategy itself is my father's proprietary playbook — he runs the <a href="https://www.smartoptionseller.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">SmartOptionSeller</a> options newsletter and created it himself — so the specifics stay private. My role was to be the <strong>AI interpreter</strong>: turn a proven manual playbook into a self-running system that scans the market continuously, evaluates candidates against his rules, and routes <strong>real orders</strong> with no human in the loop.</p>
 
       <div class="story">
         <div class="label">The hump I had to clear</div>
-        <p>In simulation the system looked unstoppable — clean, profitable setups available constantly. Live was a different world: <em>nothing would fill.</em> Closing that gap wasn't a code fix, it was a <strong>research problem</strong>. So I built the instrumentation to answer it: log every attempt, mine the data for what actually executes versus what only looks good on paper, and feed those findings back into the bot. Retuning the midpoint pricing and adding a sell-to-rescue retry loop took daily fill volume from roughly <strong>30 trades to over 140</strong>, with a peak day collecting <strong>$1,460</strong> in credit. The bot runs live and continues trading daily.</p>
+        <p>In simulation the system looked unstoppable — clean, profitable setups available constantly. Live was a different world: <em>nothing would fill.</em> Closing that gap wasn't a code fix, it was a <strong>parameter problem</strong>. It took weeks of tweaking the ranges and limits the bot was set to. Eventually we correctly tuned the midpoint pricing and added a sell-to-rescue retry loop which took daily fill volume from roughly <strong>30 trades to over 140</strong>, with a peak day collecting <strong>$1,460</strong> in credit. The bot runs live and continues trading daily.</p>
       </div>
 
       <ul class="hl">
-        <li><strong>Built a data-collection pipeline</strong> — every scan logs quotes, candidate trades, submitted prices, and fill outcomes into a structured dataset of what executes vs. what doesn't.</li>
-        <li><strong>Ran the research loop</strong> — analyzed that dataset to isolate the conditions and price offsets where real fills land, then translated the findings back into the bot's decision logic.</li>
-        <li><strong>Automated trade logging</strong> — a Gmail-to-Excel pipeline captures every executed trade into a clean, analyzable record for ongoing review.</li>
-        <li><strong>Diagnosed an authentication failure</strong> that silently killed the live bot ~25 minutes into every run — isolated overlapping trading sessions as the cause after ruling out a suspected library bug — then re-architected to one process, one session.</li>
+        <li class=""><strong>Built a data-collection pipeline</strong> — every scan logs quotes, candidate trades, submitted prices, and fill outcomes into a structured dataset of what executes vs. what doesn't.</li>
+        <li class=""><strong>Ran the research loop</strong> — analyzed that dataset to isolate the conditions and price offsets where real fills land, then translated the findings back into the bot's decision logic.</li>
+        <li class=""><strong>Automated trade logging</strong> — a Gmail-to-Excel pipeline captures every executed trade into a clean, analyzable record for ongoing review.</li>
+        <li class=""><strong>Diagnosed an authentication failure</strong> that silently killed the live bot ~25 minutes into every run — isolated overlapping trading sessions as the cause after ruling out a suspected library bug — then re-architected to one process, one session.</li>
         <li>Built <strong>position-aware order handling</strong> so the bot never sends the broker a conflicting order.</li>
       </ul>
 
@@ -561,45 +530,45 @@
         <div class="stat"><div class="v">$1,460</div><div class="d">Peak daily collected credit</div></div>
         <div class="stat"><div class="v">~5 s</div><div class="d">Continuous market scan loop</div></div>
       </div>
-      <p class="techline"><b>Stack:</b> Python · schwab-py · pandas / openpyxl · Gmail API · Git &nbsp;•&nbsp; <b>Note:</b> strategy is proprietary &amp; private repo (live credentials) — engineering walkthrough available on request.</p>
+      <p class="techline"><strong>Stack:</strong> Python · schwab-py · pandas / openpyxl · Gmail API · Git &nbsp;•&nbsp; <strong>Note:</strong> strategy is proprietary &amp; private repo (live credentials) — engineering walkthrough available on request.</p>
     </div>
   </div>
-  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a></div>
+  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a></div>
 </article>
 
 <!-- ============ PROJECT DETAIL: DOOR BUZZER ============ -->
-<article class="project-detail" id="doorbuzzer" hidden data-title="Apartment Door Buzzer">
+<article class="project-detail" id="doorbuzzer" data-title="Apartment Door Buzzer" hidden="">
   <div class="wrap detail-top">
-    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a>
+    <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
     <div class="status built"><span class="dot"></span>Built &amp; deployed</div>
     <h1>Raspberry Pi Apartment Door Buzzer</h1>
     <p class="tagline">Wi-Fi remote door unlock — 3D-printed rack &amp; pinion on a real intercom</p>
 
-    <div class="gallery" data-gallery>
+    <div class="gallery" data-gallery="">
       <div class="gallery-viewport">
         <div class="gallery-track">
-          <img src="assets/img/doorbuzzer.jpg" alt="3D-printed rack-and-pinion mounted on the apartment intercom" data-caption="3D-printed rack-and-pinion mounted on the apartment intercom.">
+          <img src="assets/img/doorbuzzer.jpg" alt="3D-printed rack-and-pinion mounted on the apartment intercom" data-caption="3D-printed rack-and-pinion mounted on the apartment intercom." class=""><video src="assets/video/Inside-house-key-video.mov" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="Rack and Pinion motor system in action" class=""></video><video src="assets/video/Updated-outside-house-key-vid.mov" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="Flow seen as an outside user" class=""></video>
         </div>
       </div>
       <div class="gallery-footer">
         <p class="gallery-caption"></p>
         <div class="gallery-dots"></div>
       </div>
-      <button class="gallery-nav prev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-      <button class="gallery-nav next" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+      <button class="gallery-nav prev" aria-label="Previous image" fdprocessedid="pgai9j"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg></button>
+      <button class="gallery-nav next" aria-label="Next image" fdprocessedid="gx1y4o"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg></button>
     </div>
 
     <div class="detail-body">
-      <p>I financed, designed, and built a motor-powered opener for my apartment's door buzzer. A <strong>3D-printed, wall-mounted rack-and-pinion</strong> physically presses the intercom's unlock button; a Wi-Fi-enabled Raspberry Pi (with a CS roommate on the server side) lets it be triggered from anywhere via a simple URL. A small, satisfying piece of everyday automation that ties together mechanism design, embedded control, and networking.</p>
+      <p class="">I designed and built a motor-powered opener for my apartment's door buzzer. A <strong>3D-printed, wall-mounted rack-and-pinion</strong> physically presses the intercom's unlock button; a Wi-Fi-enabled Raspberry Pi lets it be triggered from anywhere via a simple URL. A small, satisfying piece of everyday automation that ties together mechanism design, embedded control, and networking.</p>
       <ul class="hl">
-        <li>Designed the rack, pinion, and mount to fit an existing TekTone intercom with no modification to the unit.</li>
-        <li>Raspberry Pi GPIO drives the motor; a lightweight web server exposes a trigger endpoint.</li>
-        <li>End-to-end: mechanism → motor → microcontroller → network, remotely actuated.</li>
+        <li class="">Designed the rack, pinion, and mount to fit an existing TekTone intercom with no modification to the unit.</li>
+        <li class="">Raspberry Pi GPIO drives the motor; a lightweight web server exposes a trigger endpoint.</li>
+        <li class="">End-to-end: mechanism → motor → microcontroller → network, remotely actuated.</li>
       </ul>
-      <p class="techline"><b>Stack:</b> Raspberry Pi · Python · 3D printing · rack-and-pinion mechanism · web server</p>
+      <p class="techline"><strong>Stack:</strong> Raspberry Pi · Python · 3D printing · rack-and-pinion mechanism · web server</p>
     </div>
   </div>
-  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>All projects</a></div>
+  <div class="wrap detail-end"><a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a></div>
 </article>
 
 <script>
@@ -609,8 +578,8 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // ---- galleries / slideshows ----
-  document.querySelectorAll('[data-gallery]').forEach(gallery=>{
+  // ---- galleries / slideshows (re-runnable: safe to call again after slides change) ----
+  function initGallery(gallery){
     const track = gallery.querySelector('.gallery-track');
     const slides = Array.from(track.children);
     const prevBtn = gallery.querySelector('.gallery-nav.prev');
@@ -619,17 +588,34 @@
     const captionEl = gallery.querySelector('.gallery-caption');
     let index = 0;
 
-    if(slides.length <= 1){
-      prevBtn.hidden = true; nextBtn.hidden = true; dotsWrap.hidden = true;
-    } else {
+    dotsWrap.textContent = '';
+    const many = slides.length > 1;
+    prevBtn.hidden = !many; nextBtn.hidden = !many; dotsWrap.hidden = !many;
+
+    if(many){
       slides.forEach((_, i)=>{
         const dot = document.createElement('button');
         dot.setAttribute('aria-label', 'Go to image ' + (i+1));
         dot.addEventListener('click', ()=>go(i));
         dotsWrap.appendChild(dot);
       });
-      prevBtn.addEventListener('click', ()=>go(index-1));
-      nextBtn.addEventListener('click', ()=>go(index+1));
+      prevBtn.onclick = ()=>go(index-1);
+      nextBtn.onclick = ()=>go(index+1);
+    }
+
+    // Video slides always start from the top: every slide change rewinds and pauses
+    // all of them, then plays the one you landed on (muted, looping).
+    function syncVideo(){
+      Array.from(track.querySelectorAll('video')).forEach(v=>{ v.pause(); try{ v.currentTime = 0; }catch(e){} });
+      const slide = slides[index];
+      if(!slide) return;
+      const vid = slide.matches('video') ? slide : slide.querySelector('video');
+      if(!vid || gallery.closest('[hidden]')) return;
+      if(!vid.hasAttribute('muted')) return;   // sound on = click to play, no autoplay
+      vid.muted = true;
+      const start = ()=>{ try{ vid.currentTime = 0; }catch(e){} const p = vid.play(); if(p && p.catch) p.catch(()=>{}); };
+      if(vid.readyState >= 1) start();
+      else vid.addEventListener('loadedmetadata', start, {once:true});
     }
 
     function go(i){
@@ -637,13 +623,23 @@
       track.style.transform = 'translateX(-' + (index*100) + '%)';
       Array.from(dotsWrap.children).forEach((d,di)=>d.classList.toggle('active', di===index));
       captionEl.textContent = slides[index].dataset.caption || '';
+      syncVideo();
     }
+    gallery._syncVideo = syncVideo;
     go(0);
-  });
+  }
+  function initGalleries(){ document.querySelectorAll('[data-gallery]').forEach(initGallery); }
+  function syncGalleryVideos(){
+    document.querySelectorAll('[data-gallery]').forEach(g=>{ if(g._syncVideo) g._syncVideo(); });
+  }
+  initGalleries();
+  window.__initGalleries = initGalleries;
+  window.__syncGalleryVideos = syncGalleryVideos;
 
   // ---- hash router for project detail screens ----
   const PROJECT_IDS = ['tth','pendulum','trading-bot','doorbuzzer'];
   const DEFAULT_TITLE = document.title;
+  window.__defaultTitle = DEFAULT_TITLE;
 
   function route(){
     const id = location.hash.slice(1);
@@ -660,9 +656,23 @@
       if(!id){ window.scrollTo(0,0); }
       else { const el = document.getElementById(id); if(el) el.scrollIntoView(); }
     }
+    syncGalleryVideos();   // pause what just got hidden, restart what just appeared
   }
   window.addEventListener('hashchange', route);
   route();
 </script>
-</body>
-</html>
+
+<!-- Local edit mode. Only ever loads from localhost with #edit in the URL, so the
+     published site never touches it. Start it with: python edit_server.py -->
+<script>
+  (function(){
+    if(['localhost','127.0.0.1'].indexOf(location.hostname) < 0) return;
+    if(location.hash === '#edit') sessionStorage.setItem('gl-edit','1');
+    if(sessionStorage.getItem('gl-edit') !== '1') return;
+    var s = document.createElement('script');
+    s.src = 'editor.js';
+    s.setAttribute('data-gl-ed', '');   // so a save never writes this tag into the file
+    document.body.appendChild(s);
+  })();
+</script>
+</body></html>
