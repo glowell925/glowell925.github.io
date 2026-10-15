@@ -198,7 +198,7 @@
       <div class="section-kicker" style="margin-bottom:0">Mechanical Engineering · UW–Madison · Class of 2028</div>
     </div>
     <h1>Griffin Lowell</h1>
-    <p class="bio">Junior studying mechanical engineering with a Certificate in Computer Science. A few recent projects I would like to highlight — a rotary pendulum I'm working on now to balance and swing itself up, a cleaning fixture I designed and shipped on a manufacturing floor, and a trading bot executing real trades every day. Looking for a <strong>Summer 2027 engineering internship</strong> in controls, robotics, or mechanical design.</p>
+    <p class="bio">Junior studying mechanical engineering with a Certificate in Computer Science. A few recent projects I would like to highlight — a rotary pendulum that now swings itself up and balances on firmware I rewrote, a cleaning fixture I designed and shipped on a manufacturing floor, and a trading bot executing real trades every day. Looking for a <strong>Summer 2027 engineering internship</strong> in controls, robotics, or mechanical design.</p>
     <p class="meta">B.S. Mechanical Engineering · Certificate in Computer Science · University of Wisconsin–Madison · Expected May 2028 · Cleveland, OH</p>
     <div class="cta">
       <a class="btn primary" href="mailto:griffinlowell925@gmail.com">
@@ -229,9 +229,9 @@
       <a class="project-card" href="#pendulum">
         <div class="card-thumb"><video src="assets/video/pendulum-v2-swingup.mp4" autoplay="" muted="" loop="" playsinline="" preload="metadata" aria-label="The rotary inverted pendulum swinging itself up from hanging and balancing" style="object-position: 50% 45%;"></video></div>
         <div class="card-body">
-          <div class="status warn"><span class="dot"></span>Balancing · improving it now</div>
+          <div class="status warn"><span class="dot"></span>Swings up and balances · tuning it now</div>
           <h3>Rotary Inverted Pendulum</h3>
-          <p>A single motor balancing a free rod upright — a home-built first version, now a lab unit that balances while I work on the shake and a self swing-up.</p>
+          <p>A single motor balancing a free rod upright — a home-built first version, then a lab unit I reflashed with my own firmware so it swings itself up and catches the rod.</p>
           <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
@@ -406,22 +406,22 @@
 <article class="project-detail" id="pendulum" data-title="Rotary Inverted Pendulum" hidden="">
   <div class="wrap detail-top">
     <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
-    <div class="status warn"><span class="dot"></span>Balancing · improving it now</div>
+    <div class="status warn"><span class="dot"></span>Swings up and balances · tuning it now</div>
     <h1>Rotary Inverted Pendulum</h1>
-    <p class="tagline">One motor holding a free rod upright — a home-built first version, then a lab unit I got balancing and am now improving</p>
+    <p class="tagline">One motor swinging a free rod up and holding it upright — a home-built first version, then a lab unit I reflashed with my own firmware</p>
 
     <div class="gallery" data-gallery="">
       <div class="gallery-viewport">
         <div class="gallery-track">
           <video src="assets/video/pendulum-v2-swingup.mp4" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="One press of USER and it gets itself up: the arm flicks the hanging rod upright and the balance controller catches it and holds it."></video>
-          <video src="assets/video/pendulum-v2-balancing.mp4" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="Lifting the rod upright and letting go — the controller catches it and holds it. The shake you can see is what I'm fixing now."></video>
+          <video src="assets/video/pendulum-v2-balancing.mp4" muted="" loop="" playsinline="" preload="metadata" controls="" data-caption="On the manufacturer's firmware, before my changes: lift the rod up, let go, and it holds — with the shake I later cut roughly in half."></video>
           <img src="assets/img/pendulum-v2-unit.jpg" alt="WHEELTEC IP570 rotary inverted pendulum: steel motor base, white driven arm, rod hanging from a gold angle sensor" data-caption="The lab unit (WHEELTEC IP570): motor in the steel base, driven arm across the top, rod hanging from the angle sensor at its tip." class="">
           <img src="assets/img/pendulum-v2-controller.jpg" alt="STM32 controller board with an OLED display and USER and RESET buttons" data-caption="Controller board: an STM32F103 microcontroller with an OLED readout. USER arms the motor, RESET zeroes the arm encoder." class="">
           <img src="assets/img/pendulum-v2-oled-ready.jpg" alt="Controller OLED showing rod angle, arm angle, VOL 5.16 V, ADC 1018 and P 10000" data-caption="The manual's ready check with the rod hanging: ADC near 1020 and P = 10000. VOL reads 5.16 V — still on the 5 V adapter from the box." class="">
           <img src="assets/img/pendulum-v2-motor.jpg" alt="WHEELTEC MG513P20 12 V gearmotor mounted in the steel base" data-caption="Drive motor: WHEELTEC MG513P20 — 12 V, 1:20 gearbox, Hall encoder that measures the arm angle." class="">
           <img src="assets/img/pendulum-v2-5v-adapter.jpg" alt="Power adapter label reading output 5 V 4000 mA" data-caption="The adapter in the box was 5 V. The firmware scales its motor command for 12 V, so at 5 V the motor couldn't hold the rod up." class="">
 
-          <div class="gallery-svg" data-caption="How the lab unit balances today — both angles and their rates feed an LQR gain on the STM32, which drives the motor every 20 ms.">
+          <div class="gallery-svg" data-caption="How the lab unit balances today — both angles and their filtered rates feed an LQR gain on the STM32, which updates the motor every 5 ms (it was 20 ms on the stock firmware).">
             <svg viewBox="0 0 460 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Control loop diagram">
               <g font-family="'Space Grotesk',sans-serif" font-size="10" text-anchor="middle">
                 <rect x="16" y="48" width="80" height="46" rx="8" fill="#FFFFFF" stroke="#CBC9C0"></rect>
@@ -468,16 +468,21 @@
       </div>
 
       <div class="story">
-        <div class="label">What I'm working on now</div>
-        <p>It balances once I lift the rod upright and let go, but it <strong>shakes</strong> while it holds, and it can't get itself up. Right now it runs the manufacturer's LQR controller — <strong>none of my changes are on it yet</strong>. My professor has OK'd reflashing it with modified firmware, and that's the next step.</p>
+        <div class="label">Rewriting the firmware</div>
+        <p>On the stock firmware it only balanced once I lifted the rod up by hand, it <strong>shook</strong> while it held, and it couldn't get itself up. With my professor's OK I set up a debug probe, <strong>backed up the factory firmware</strong>, and started flashing my own builds. The board's USB serial never worked, so I log the controller's data into a buffer in memory and pull it out over the debug link to see what it was actually doing.</p>
       </div>
 
       <ul class="hl">
-        <li class=""><strong>Likely cause of the shake:</strong> the controller only updates 50 times a second and calculates both speeds as raw differences between readings with no filtering, so sensor noise goes straight into jittery motor commands.</li>
-        <li class=""><strong>Fixing it:</strong> log what the controller sees before changing anything, clean up how the rod angle is read, then run the loop four times faster with filtered speed estimates.</li>
-        <li class=""><strong>Swinging up on its own:</strong> bring the manufacturer's one-shot "flick" from their other firmware into the LQR controller — the arm throws the rod up and the balance controller catches it — started by the USER button or a nudge of the hanging rod.</li>
-        
+        <li><strong>Measured the shake first:</strong> the logs showed a steady oscillation driven by the controller reacting late, not sensor noise.</li>
+        <li><strong>Faster, smoother control loop:</strong> I raised it from 50 to 200 updates a second and filtered the speed estimates, which cut the rod's wobble roughly in half.</li>
+        <li><strong>Better sensor readings:</strong> fixed how the rod-angle sensor is sampled (which also moved the true upright point) and added a filter that throws out one-off spikes that were jolting the motor.</li>
+        <li><strong>Swings itself up:</strong> one press of USER with the rod hanging still makes the arm flick about 120° so the rod swings up, and the balance controller catches it near upright. It flicks toward the side where the sensor cable has slack — an early flick the other way ran the cable into its stop.</li>
       </ul>
+
+      <div class="story">
+        <div class="label">What I'm working on now</div>
+        <p>The swing-up <strong>doesn't catch every time yet</strong> — I'm tuning how hard the arm flicks so the rod arrives at the top slowly enough to catch. A smaller wobble is left after the catch, most likely from play in the gearbox, which software can only partly hide.</p>
+      </div>
 
       
     </div>
