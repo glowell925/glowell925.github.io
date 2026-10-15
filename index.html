@@ -229,7 +229,7 @@
       <a class="project-card" href="#pendulum">
         <div class="card-thumb"><video src="assets/video/pendulum-v2-swingup.mp4" autoplay="" muted="" loop="" playsinline="" preload="metadata" aria-label="The rotary inverted pendulum swinging itself up from hanging and balancing" style="object-position: 50% 45%;"></video></div>
         <div class="card-body">
-          <div class="status warn"><span class="dot"></span>Swings up and balances · tuning it now</div>
+          <div class="status built"><span class="dot"></span>Built · swings up and balances</div>
           <h3>Rotary Inverted Pendulum</h3>
           <p>A single motor balancing a free rod upright — a home-built first version, then a lab unit I reflashed with my own firmware so it swings itself up and catches the rod.</p>
           <span class="card-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></span>
@@ -406,7 +406,7 @@
 <article class="project-detail" id="pendulum" data-title="Rotary Inverted Pendulum" hidden="">
   <div class="wrap detail-top">
     <a class="back-link" href="#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>All projects</a>
-    <div class="status warn"><span class="dot"></span>Swings up and balances · tuning it now</div>
+    <div class="status built"><span class="dot"></span>Built · swings up and balances</div>
     <h1>Rotary Inverted Pendulum</h1>
     <p class="tagline">One motor swinging a free rod up and holding it upright — a home-built first version, then a lab unit I reflashed with my own firmware</p>
 
@@ -455,21 +455,21 @@
     </div>
 
     <div class="detail-body">
-      <p class="">A rotary inverted pendulum: one motor swings an arm around in a horizontal circle, and a free rod hangs from the end of that arm on an unpowered pivot. The goal is to <strong>swing the rod up and hold it balanced upright</strong> using only that one motor. It's a classic controls problem — two things move but only one is driven, and the rod falls the moment the controller stops correcting. I took it on at the recommendation of a <strong>robotics/controls research professor</strong> at UW–Madison.</p>
+      <p class="">A rotary inverted pendulum: one motor swings an arm around in a horizontal circle, and a free rod hangs from the end of that arm on an unpowered pivot. The goal is to swing the rod up and hold it balanced upright using only that one motor. It's a classic controls problem — two things move but only one is driven, and the rod falls the moment the controller stops correcting. I took it on at the recommendation of a robotics/controls research professor at UW–Madison.</p>
 
       <div class="story">
         <div class="label">Version 1 — building one at home</div>
-        <p>Over the summer I tried to build my own from scratch. I modeled it in SolidWorks, went through <strong>six print iterations</strong> of the arm, sensor housing, and pivot, and sourced the electronics myself: a Raspberry Pi Zero 2 W, an L298N motor driver, an N20 encoder gearmotor, and an AS5600 magnetic angle sensor. Everything went together, but <strong>the hardware was the limit</strong> — my soldering on the sensors was poor and they never read reliably, and the Pi kept overheating and shutting off, so I never got to the point of running a controller on it. Going further meant buying another round of electronics on top of the reprints and the original parts, so I stopped there and waited for a proper unit from my professor.</p>
+        <p>Over the summer I tried to build my own from scratch. I modeled it in SolidWorks, went through six print iterations of the arm, sensor housing, and pivot, and sourced the electronics myself: a Raspberry Pi Zero 2 W, an L298N motor driver, an N20 encoder gearmotor, and an AS5600 magnetic angle sensor. Everything went together, but the hardware was the limit — my soldering on the sensors was poor and they never read reliably, and the Pi kept overheating and shutting off, so I never got to the point of running a controller on it. Going further meant buying another round of electronics on top of the reprints and the original parts, so I stopped there and waited for a proper unit from my professor.</p>
       </div>
 
       <div class="story">
         <div class="label">Version 2 — the lab unit</div>
-        <p>Back at school my professor lent me a <strong>WHEELTEC IP570</strong>, a commercial rotary pendulum with its own STM32 controller and firmware. All of its documentation is <strong>in Chinese</strong>, so I worked through the manuals and the firmware source to figure out how to run it. It powered on and read its sensors correctly, but dropped the rod every time: the adapter in the box was <strong>5 V</strong>, and the firmware scales its motor command for a 12 V supply, so the motor had well under half the push it was designed for. On a <strong>12 V adapter it balanced</strong>.</p>
+        <p>Back at school my professor lent me a WHEELTEC IP570, a commercial rotary pendulum with its own STM32 controller and firmware. All of its documentation is in Chinese, so I worked through the manuals and the firmware source to figure out how to run it. It powered on and read its sensors correctly, but dropped the rod every time: the adapter in the box was 5 V, and the firmware scales its motor command for a 12 V supply, so the motor had well under half the push it was designed for. On a 12 V adapter it balanced.</p>
       </div>
 
       <div class="story">
         <div class="label">Rewriting the firmware</div>
-        <p>On the stock firmware it only balanced once I lifted the rod up by hand, it <strong>shook</strong> while it held, and it couldn't get itself up. With my professor's OK I set up a debug probe, <strong>backed up the factory firmware</strong>, and started flashing my own builds. The board's USB serial never worked, so I log the controller's data into a buffer in memory and pull it out over the debug link to see what it was actually doing.</p>
+        <p>On the stock firmware it only balanced once I lifted the rod up by hand, it shook while it held, and it couldn't get itself up. With my professor's OK I set up a debug probe, backed up the factory firmware, and started flashing my own builds. The board's USB serial never worked, so I log the controller's data into a buffer in memory and pull it out over the debug link to see what it was actually doing.</p>
       </div>
 
       <ul class="hl">
@@ -479,10 +479,6 @@
         <li><strong>Swings itself up:</strong> one press of USER with the rod hanging still makes the arm flick about 120° so the rod swings up, and the balance controller catches it near upright. It flicks toward the side where the sensor cable has slack — an early flick the other way ran the cable into its stop.</li>
       </ul>
 
-      <div class="story">
-        <div class="label">What I'm working on now</div>
-        <p>The swing-up <strong>doesn't catch every time yet</strong> — I'm tuning how hard the arm flicks so the rod arrives at the top slowly enough to catch. A smaller wobble is left after the catch, most likely from play in the gearbox, which software can only partly hide.</p>
-      </div>
 
       
     </div>
